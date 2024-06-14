@@ -1,0 +1,264 @@
+body{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to right, #9B30FF, #4B0082), linear-gradient(to right, #FF69B4, #8A2BE2);
+    background-blend-mode: overlay;
+    color:#fff;
+}
+
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centralizar horizontalmente */
+    height: 100vh; /* Definir a altura total da janela de visualização */
+}
+
+.login {
+    margin: 20px; /* Adicione margens para separar os elementos */
+    text-align: center; /* Centralizar elementos dentro do login */
+    display: flex;
+    flex-direction: column; /* Organizar elementos em colunas */
+    margin-top: -125px;
+}
+
+.login input, .login button {
+    margin-bottom: 10px; /* Adicionar espaço entre os elementos */
+}
+
+.cad {
+    text-align: center;
+    margin-left: 150px;
+    margin-top: -200px;
+}
+
+/* Estilo dos campos de input */
+input {
+    border-radius: 5px; /* cantos arredondados */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* sombra sutil */
+    border: none; /* sem borda */
+    padding: 10px 15px; /* espaçamento interno */
+    margin-bottom: 15px; /* espaçamento entre os campos */
+  }
+  
+  /* Estilo do texto */
+  .texto {
+    color: #333; /* cor do texto */
+    font-family: 'Arial', sans-serif; /* tipo de fonte */
+    font-size: 14px; /* tamanho da fonte */
+    text-align: center; /* alinhamento do texto */
+  }
+  
+  /* Estilo do botão */
+  button {
+    display: flex;
+    justify-content: center;
+    border-radius: 5px; /* cantos arredondados */
+    background-image: linear-gradient(to right, purple, orange); /* gradiente do fundo */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* sombra sutil */
+    border: none; /* sem borda */
+    padding: 10px 15px; /* espaçamento interno */
+    color: white; /* cor do texto */
+    font-family: 'Arial', sans-serif; /* tipo de fonte */
+    font-size: 14px; /* tamanho da fonte */
+    text-transform: uppercase; /* texto em maiúsculas */
+    cursor: pointer; /* cursor do mouse */
+    transition: background-color 0.3s; /* transição suave de cores */
+  }
+  
+  button:hover {
+    background-image: linear-gradient(to right, orange, purple); /* gradiente do fundo ao passar o mouse */
+  }
+  
+  /* Estilo do link de cadastro */
+  .signup-link {
+    color: pink; /* cor do link de cadastro */
+    font-family: 'Arial', sans-serif; /* tipo de fonte */
+    font-size: 14px; /* tamanho da fonte */
+    text-decoration: none; /* sem sublinhado */
+  }
+  
+  .signup-link:hover {
+    text-decoration: underline; /* sublinhado ao passar o mouse */
+  }
+  
+
+  /* Estilo do painel do menu lateral */
+.menu-lateral {
+    background-color: #f0f0f0; /* cor de fundo do menu */
+    width: 250px; /* largura do menu */
+    height: 100vh; /* altura total da tela */
+    box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1); /* sombra sutil */
+    position: fixed; /* fixo na tela */
+    left: 0; /* alinhado à esquerda */
+    top: 0; /* alinhado ao topo */
+    overflow-y: auto; /* barra de rolagem se necessário */
+  }
+  
+  /* Estilo dos itens do menu */
+  .item-menu {
+    padding: 15px 20px; /* espaçamento interno */
+    border-bottom: 1px solid #ddd; /* linha divisória */
+    color: #333; /* cor do texto */
+    font-family: 'Arial', sans-serif; /* tipo de fonte */
+    font-size: 16px; /* tamanho da fonte */
+    text-decoration: none; /* sem sublinhado */
+    display: block; /* ocupa a largura toda */
+    transition: background-color 0.3s; /* transição suave de cores */
+  }
+  
+  .item-menu:hover {
+    background-color: #e9e9e9; /* cor de fundo ao passar o mouse */
+  }
+  
+  /* Estilo do item ativo */
+  .item-menu.ativo {
+    background-color: #ddd; /* cor de fundo do item ativo */
+    color: purple; /* cor do texto do item ativo */
+  }
+  
+  /* HTML estrutura do menu */
+
+  #turmas {
+    display: flex;
+    flex-wrap: wrap; /* Permite que os itens sejam alinhados em múltiplas linhas */
+    justify-content: flex-start; /* Alinha os itens ao início do container */
+    padding: 20px;
+  }
+
+.card-turma {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    padding: 35px;
+    width: calc(50% - 20px); /* Ajusta a largura para caber dois elementos por linha */
+    box-sizing: border-box; /* Garante que padding e border sejam incluídos na largura total */
+    position: relative;
+}
+
+
+
+
+/* Restante do seu CSS permanece inalterado */
+
+.card-turma:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.botao-acessar {
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.botao-acessar:hover {
+    background-color: #0056b3;
+}
+
+.card-turma h3 {
+    color: #000000;
+}
+
+.tur {
+    color: #000000;
+}
+.for {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Alinha horizontalmente ao centro */
+  justify-content: center; /* Alinha verticalmente ao centro */
+  height: 100vh; /* Faz a div .for ocupar toda a altura da tela */
+}
+
+h2 {
+  /* text-align: center; Alinha o texto do h2 ao centro */
+  margin-top: 150px;
+  font-size: 35px;
+  margin-left: 150px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+form {
+  max-width: 800px;
+  /* margin: auto; Alinha o formulário ao centro */
+  padding: 60px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra ao formulário */
+  margin-left: 150px;
+  margin-bottom: 120px;
+}
+
+/* Estilização dos rótulos */
+form label {
+  display: block;
+  margin-top: 10px;
+  color: #000000;
+ font: optional;
+ font-size: medium;
+  
+}
+
+/* Estilização dos campos de entrada */
+form input[type="text"],
+form input[type="date"],
+form input[type="number"],
+form input[type="tel"],
+form input[type="email"],
+form select {
+  width: 80%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+/* Estilização do botão de envio */
+form button {
+ justify-content: center;
+  padding: 10px;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 30px;
+  margin-left: 310px;
+}
+
+form button:hover {
+  background-color: #4cae4c; /* Cor verde mais escura ao passar o mouse */
+}
+
+/* Estilização para alinhar os campos em três colunas */
+.linha {
+  display: flex;
+  justify-content: space-between;
+}
+
+.campo {
+  flex: 1;
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+  .linha {
+    flex-direction: column;
+  }
+
+  .campo {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+}
