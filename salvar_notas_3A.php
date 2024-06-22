@@ -2,7 +2,7 @@
 // Verifica se os dados do formulário foram enviados via método POST
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Verifica se todos os campos necessários foram preenchidos
-    if (isset($_POST["id_aluno"]) && isset($_POST["unidade"]) && isset($_POST["nota1"]) && isset($_POST["nota2"]) && isset($_POST["conceito"]) && isset($_POST["pos_noa"]) && isset($_POST["disciplina"])) {
+    if (isset($_POST["aluno_id_3a"]) && isset($_POST["unidade"]) && isset($_POST["nota1"]) && isset($_POST["nota2"]) && isset($_POST["conceito"]) && isset($_POST["disciplina"])) {
         // Conexão com o banco de dados
         $servername = "localhost";
         $username = "root";
@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         // Prepara a declaração SQL para inserir as notas no banco de dados
-        $sql_insert_notas = "INSERT INTO notas_1B (aluno_id, id_disciplina, unidade, av1, av2, conceito, pos_noa) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        $sql_insert_notas = "INSERT INTO notas (aluno_id_3a, id_disciplina, unidade, av1, av2, conceito) VALUES (?, ?, ?, ?, ?, ?)";
 
         // Prepara a declaração SQL
         $stmt = $conn->prepare($sql_insert_notas);
@@ -25,17 +25,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Verifica se a preparação da declaração foi bem sucedida
         if ($stmt) {
             // Vincula parâmetros à declaração preparada
-            $stmt->bind_param("iiissss", $id_aluno, $id_disciplina, $unidade, $nota1, $nota2, $conceito, $pos_noa);
+            $stmt->bind_param("iiisss", $id_aluno, $id_disciplina, $unidade, $nota1, $nota2, $conceito);
 
             // Itera sobre os dados recebidos do formulário
-            for ($i = 0; $i < count($_POST["id_aluno"]); $i++) {
-                $id_aluno = $_POST["id_aluno"][$i];
+            for ($i = 0; $i < count($_POST["aluno_id_3a"]); $i++) {
+                $id_aluno = $_POST["aluno_id_3a"][$i];
                 $id_disciplina = $_POST["disciplina"][$i];
                 $unidade = $_POST["unidade"][$i];
                 $nota1 = $_POST["nota1"][$i];
                 $nota2 = $_POST["nota2"][$i];
                 $conceito = $_POST["conceito"][$i];
-                $pos_noa = $_POST["pos_noa"][$i];
+
                 // Executa a declaração preparada
                 if (!$stmt->execute()) {
                     echo "Erro ao inserir notas para o aluno ID $id_aluno: " . $stmt->error;
@@ -43,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
 
           // Consulta para obter o nome do aluno
-$sql_select_nome = "SELECT nome_aluno FROM alunosa1B WHERE aluno_id = ?";
+$sql_select_nome = "SELECT nome_aluno FROM alunos3A WHERE aluno_id_3a = ?";
 $stmt_nome = $conn->prepare($sql_select_nome);
 $stmt_nome->bind_param("i", $id_aluno);
 $stmt_nome->execute();

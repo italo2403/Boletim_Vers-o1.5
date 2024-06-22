@@ -26,7 +26,7 @@ $responsavel = $_POST['responsavel'];
 $telefone_responsavel = $_POST['telefone_responsavel'];
 
 
-$sql = "INSERT INTO alunos (nome_aluno, data_nascimento, endereco, numero, bairro, cidade, estado, cep, telefone, email, responsavel, telefone_responsavel )
+$sql = "INSERT INTO alunosa1B (nome_aluno, data_nascimento, endereco, numero, bairro, cidade, estado, cep, telefone, email, responsavel, telefone_responsavel )
  VALUES ('$nome_aluno', '$data_nascimento', '$endereco', '$numero', '$bairro', '$cidade', '$estado', '$cep', '$telefone', '$email', '$responsavel', '$telefone_responsavel')";
 if ($conn->query($sql) === TRUE) {
     header("Location: alunos.html");

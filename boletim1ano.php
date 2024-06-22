@@ -60,7 +60,7 @@
                 $student_name = $_POST['student-name'];
 
                 // Consulta SQL para buscar o aluno pelo nome
-                $sql = "SELECT * FROM alunos WHERE nome_aluno LIKE '%$student_name%'";
+                $sql = "SELECT * FROM alunosa1B WHERE nome_aluno LIKE '%$student_name%'";
                 $result = $conn->query($sql);
 
                 if ($result->num_rows > 0) {
@@ -72,7 +72,7 @@
                         // Consulta para buscar as notas do aluno
                         $aluno_id = $row['aluno_id'];
                         $notas_sql = "SELECT d.nome AS disciplina, n.unidade, n.av1, n.av2, n.conceito, n.pos_noa
-                                      FROM notas n
+                                      FROM notas_1B n
                                       JOIN disciplinas d ON n.id_disciplina = d.id_disciplina
                                       WHERE n.aluno_id = $aluno_id
                                       ORDER BY n.unidade";

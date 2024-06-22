@@ -90,7 +90,7 @@ input {
   /* Estilo do painel do menu lateral */
 .menu-lateral {
     background-color: #f0f0f0; /* cor de fundo do menu */
-    width: 250px; /* largura do menu */
+    /* width: 250px; largura do menu */
     height: 100vh; /* altura total da tela */
     box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1); /* sombra sutil */
     position: fixed; /* fixo na tela */

@@ -3,7 +3,7 @@ create database boletim;
 use boletim;
 -- drop database boletim;
 
-create table alunos(
+create table alunosa1B(
 aluno_id int primary key auto_increment,
 nome_aluno varchar(255),
 data_nascimento varchar(255),
@@ -19,7 +19,7 @@ responsavel varchar(255),
  telefone_responsavel varchar(255)
 );
 
-INSERT INTO alunos (nome_aluno, email, telefone_responsavel)
+INSERT INTO alunosa1B (nome_aluno, email, telefone_responsavel)
 VALUES 
 ('ADRÍCIA NAINE COSTA BANDEIA FERREIRA
 ', 'adriciaferreira629439@alunosenac.com', '97106-3200
@@ -51,7 +51,7 @@ VALUES
 
 
 
-select * from alunos;
+select * from alunosa1B;
 
 create table professores(
 professor_id int primary key auto_increment,
@@ -92,7 +92,8 @@ insert into disciplinas(nome) values("LÍNGUA PORTUGUSESA"),
 ("BIOLOGIA");
 
 -- drop table professores;
-
+alter table notas  add column aluno_id_3a int;
+alter table notas add constraint aluno_id_3a foreign key(aluno_id_3a) references alunos3A(aluno_id_3a);
 CREATE TABLE notas (
     id_nota INT PRIMARY KEY AUTO_INCREMENT,
     id_disciplina INT,
@@ -103,25 +104,63 @@ CREATE TABLE notas (
     conceito VARCHAR(10),
     pos_noa VARCHAR(10),
     FOREIGN KEY (id_disciplina) REFERENCES disciplinas(id_disciplina),
-    FOREIGN KEY (aluno_id) REFERENCES alunos(aluno_id)
+    FOREIGN KEY (aluno_id) REFERENCES alunosa1B(aluno_id)
    
 );
-select * from notas;
+
+CREATE TABLE notas_1B (
+    id_nota INT PRIMARY KEY AUTO_INCREMENT,
+    id_disciplina INT,
+    aluno_id INT,
+    unidade INT,
+    av1 VARCHAR(10),
+    av2 VARCHAR(10),
+    conceito VARCHAR(10),
+    pos_noa VARCHAR(10),
+    FOREIGN KEY (id_disciplina) REFERENCES disciplinas(id_disciplina),
+    FOREIGN KEY (aluno_id) REFERENCES alunosa1B(aluno_id)
+   
+);
+select  id_nota,  id_disciplina,  aluno_id, unidade , av1, av2, conceito, pos_noa from notas_1B;
+
+create table alunos3A(
+aluno_id_3a int primary key auto_increment,
+nome_aluno varchar(255),
+data_nascimento varchar(255),
+endereco varchar(255),
+numero varchar(255),  
+bairro varchar(255),
+cidade varchar(55),
+estado varchar(25), 
+cep varchar(25), 
+telefone varchar(25), 
+email varchar(255),
+responsavel varchar(255),
+ telefone_responsavel varchar(255)
+);
+INSERT INTO alunos3A(nome_aluno)VALUES
+("Arthur Floro"),
+("Bruno José"),
+("Daniella Santana"),
+("Davi Yuri"),
+("Diná"),
+("Eduardo"),
+("Ellen Santos"),
+("Guilherme Alves"),
+("Guilherme Araújo"),
+("Heytor"),
+("Isabel Vitória"),
+("João Pedro"),
+("José Ferreira"),
+("José Henrique"),
+("Josué"),
+("Larissa Gabrielli"),
+("Letícia"),
+("LMMPS"),
+("Luiza Tavares"),
+("Pedro Bezerra"),
+("Pedro Henrique"),
+("Sam Diego"),
+("Savio Torres");
 
 
-
-
-
-
-
--- Um aluno pode estar matriculado em várias disciplinas (Aluno_Disciplina.aluno_id para Aluno.aluno_id).
--- Uma disciplina pode ter vários alunos matriculados (Aluno_Disciplina.disciplina_id para Disciplinas.disciplina_id).
--- Uma disciplina tem um professor responsável (Aluno_Disciplina.professor_id para Professores.professor_id).
--- Um aluno está em apenas uma turma (Aluno.turma para Turmas.turma_id).
-
-
--- aluno_disciplina_id (chave primária)
--- aluno_id (chave estrangeira)
--- disciplina_id (chave estrangeira)
--- nota
--- professor_id
